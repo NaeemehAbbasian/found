@@ -1,4 +1,3 @@
-// src/app/page.tsx
 'use client'; 
 
 export default function LandingPage() {
@@ -37,6 +36,7 @@ export default function LandingPage() {
                     >
                         
                         <div>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img 
                                 src="/bag.png" 
                                 alt="Briefcase Icon" 
