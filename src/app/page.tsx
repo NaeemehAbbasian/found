@@ -1,4 +1,6 @@
+
 'use client'; 
+
 export default function LandingPage() {
     const isAuthenticated = false; 
 
@@ -66,8 +68,6 @@ export default function LandingPage() {
                             learn more
                         </a>
                     </div>
-                    
-
                 </div>
             </div>
         </main>
@@ -81,7 +81,7 @@ const StartButton = ({ isAuthenticated }: { isAuthenticated: boolean }) => {
         <a 
             href={targetHref}
             className="w-full py-3 px-6 text-white rounded-lg transition shadow-lg text-center"
-            style={{ backgroundColor: '#5C4FC1', '--tw-ring-color': '#5C4FC1' }}
+            style={{ backgroundColor: '#5C4FC1' }}
         >
             Start
         </a>
