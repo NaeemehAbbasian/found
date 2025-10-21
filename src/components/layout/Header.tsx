@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 
 const Header = () => {
-  const [user, setUser] = useState(null); 
+  const [user] = useState(null); 
   useEffect(() => {
   }, []);
 
@@ -27,6 +27,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto h-20 flex items-center px-6 sm:px-8 lg:px-12">
         
         <NavLink href="/" className="flex-shrink-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src="/logo.png" 
             alt="3F Logo"
@@ -73,6 +74,7 @@ const Header = () => {
               style={{ backgroundColor: '#DDDFFF' }} 
             >
                 <div className="w-full h-full rounded-full overflow-hidden bg-gray-200">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img 
                       src={user.user_metadata?.avatar_url || "https://placehold.co/40x40/dcdaff/5946D6?text=AD"} 
                       alt="User Avatar" 
