@@ -2,6 +2,21 @@
 
 import { Search } from 'lucide-react'; 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import React from 'react';
+
+
+interface NavLinkProps {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ href, children, className }) => (
+  <a href={href} className={className}>
+    {children}
+  </a>
+);
 
 
 const Header = () => {
@@ -16,21 +31,22 @@ const Header = () => {
     { name: 'Help & Support', href: '/support' },
   ];
   
-  const NavLink = ({ href, children, className }) => (
-    <a href={href} className={className}>
-      {children}
-    </a>
-  );
 
+
+
+
+
+  
   return (
     <header className="bg-white relative z-10" dir="ltr"> 
       <div className="max-w-7xl mx-auto h-20 flex items-center px-6 sm:px-8 lg:px-12">
         
         <NavLink href="/" className="flex-shrink-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
+          <Image 
             src="/logo.png" 
             alt="3F Logo"
+            width={47}
+            height={27} 
             className="w-8 object-contain" 
           />
         </NavLink>
@@ -68,20 +84,21 @@ const Header = () => {
           </div>
 
           {user ? (
+            
             <NavLink 
-              href="/profile" 
-              className="relative w-11 h-11 flex items-center justify-center rounded-full overflow-hidden cursor-pointer p-0.5"
-              style={{ backgroundColor: '#DDDFFF' }} 
-            >
-                <div className="w-full h-full rounded-full overflow-hidden bg-gray-200">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img 
-                      src={user.user_metadata?.avatar_url || "https://placehold.co/40x40/dcdaff/5946D6?text=AD"} 
-                      alt="User Avatar" 
-                      className="object-cover w-full h-full rounded-full" 
-                    />
-                </div>
-            </NavLink>
+  href="/profile" 
+  className="relative w-11 h-11 flex items-center justify-center rounded-full overflow-hidden p-0.5 bg-[#DDDFFF]"
+>
+    <div className="w-full h-full rounded-full overflow-hidden bg-gray-200">
+        <Image 
+          src={user?.user_metadata?.avatar_url || "https://placehold.co/44x44/dcdaff/5946D6?text=AD"} 
+          alt="User Avatar" 
+          width={44}  
+          height={44} 
+          className="object-cover w-full h-full rounded-full" 
+        />
+    </div>
+</NavLink>
           ) : (
             <NavLink 
               href="/login" 

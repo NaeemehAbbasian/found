@@ -1,4 +1,5 @@
 'use client'; 
+import Image from 'next/image';
 
 export default function LandingPage() {
     const isAuthenticated = false; 
@@ -36,16 +37,20 @@ export default function LandingPage() {
                     >
                         
                         <div>
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img 
-                                src="/bag.png" 
-                                alt="Briefcase Icon" 
-                                className="w-[92px] h-[72px]" 
+                            
+                            <Image 
+                              src="/bag.png" 
+                              alt="Briefcase Icon" 
+                               width={92}  
+                                height={72} 
+                                className="w-[92px] h-[72px] object-contain" 
                                 onError={(e) => {
-                                    e.currentTarget.onerror = null;
-                                    e.currentTarget.src = "https://placehold.co/92x72/644FC1/FFFFFF?text=Bag";
-                                }}
-                            />
+                                const target = e.currentTarget as HTMLImageElement; 
+                               target.onerror = null;
+                                 target.src = "https://placehold.co/92x72/644FC1/FFFFFF?text=Bag";
+                                  }}
+                                    />
+                            
                         </div>
 
                         <h2 
