@@ -32,7 +32,6 @@ export default function LandingPage() {
                     >
                         
                         <div>
-                            {/* Image Component with fixed width and height */}
                             <Image 
                               src="/bag.png" 
                               alt="Briefcase Icon" 
@@ -72,12 +71,10 @@ export default function LandingPage() {
     );
 }
 
-// Defining props type for TypeScript
 interface StartButtonProps {
     isAuthenticated: boolean;
 }
 
-// 👈 تغییر: حذف React.FC برای سازگاری بهتر با App Router
 const StartButton = ({ isAuthenticated }: StartButtonProps) => { 
     const targetHref = isAuthenticated ? '/create-profile-step1' : '/login';
     
