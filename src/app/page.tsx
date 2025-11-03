@@ -1,10 +1,17 @@
+
 'use client'; 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function LandingPage() {
     const isAuthenticated = false; 
+    
+    const [bagSrc, setBagSrc] = useState('/bag.png'); 
+    
+    const handleBagError = () => {
+        setBagSrc("https://placehold.co/92x72/644FC1/FFFFFF?text=Bag");
+    };
 
     return (
         <main className="min-h-screen bg-white pt-[100px] pb-20"> 
@@ -33,16 +40,12 @@ export default function LandingPage() {
                         
                         <div>
                             <Image 
-                              src="/bag.png" 
+                              src={bagSrc} 
                               alt="Briefcase Icon" 
                               width={92}
                               height={72}
                               className="object-contain"
-                              onError={(e) => {
-                                const target = e.currentTarget as HTMLImageElement; 
-                                target.onerror = null;
-                                target.src = "https://placehold.co/92x72/644FC1/FFFFFF?text=Bag";
-                              }}
+                              onError={handleBagError}
                             />
                             
                         </div>

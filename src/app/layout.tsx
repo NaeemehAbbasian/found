@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google"; 
+// import { Geist_Mono } from "next/font/google"; 
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-gray-50"> 
-      <body>
+     <body>
         <Header />
         <main className="min-h-[calc(100vh-140px)]"> 
           {children}

@@ -1,9 +1,18 @@
 'use client'; 
 
 import { Search } from 'lucide-react'; 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+
+interface UserMetadata {
+    avatar_url: string;
+}
+
+interface User {
+    user_metadata: UserMetadata;
+}
 
 
 interface NavLinkProps {
@@ -12,17 +21,17 @@ interface NavLinkProps {
   className?: string;
 }
 
+
 const NavLink: React.FC<NavLinkProps> = ({ href, children, className }) => (
-  <a href={href} className={className}>
+  <Link href={href} className={className}>
     {children}
-  </a>
+  </Link>
 );
 
 
 const Header = () => {
-  const [user] = useState(null); 
-  useEffect(() => {
-  }, []);
+  
+  const user: User | null = null; 
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -31,11 +40,6 @@ const Header = () => {
     { name: 'Help & Support', href: '/support' },
   ];
   
-
-
-
-
-
   
   return (
     <header className="bg-white relative z-10" dir="ltr"> 
@@ -86,19 +90,19 @@ const Header = () => {
           {user ? (
             
             <NavLink 
-  href="/profile" 
-  className="relative w-11 h-11 flex items-center justify-center rounded-full overflow-hidden p-0.5 bg-[#DDDFFF]"
->
-    <div className="w-full h-full rounded-full overflow-hidden bg-gray-200">
-        <Image 
-          src={user?.user_metadata?.avatar_url || "https://placehold.co/44x44/dcdaff/5946D6?text=AD"} 
-          alt="User Avatar" 
-          width={44}  
-          height={44} 
-          className="object-cover w-full h-full rounded-full" 
-        />
-    </div>
-</NavLink>
+              href="/profile" 
+              className="relative w-11 h-11 flex items-center justify-center rounded-full overflow-hidden p-0.5 bg-[#DDDFFF]"
+            >
+                <div className="w-full h-full rounded-full overflow-hidden bg-gray-200">
+                    <Image 
+                      src={(user as User).user_metadata.avatar_url || "https://placehold.co/44x44/dcdaff/5946D6?text=AD"} 
+                      alt="User Avatar" 
+                      width={44}  
+                      height={44} 
+                      className="object-cover w-full h-full rounded-full" 
+                    />
+                </div>
+            </NavLink>
           ) : (
             <NavLink 
               href="/login" 
