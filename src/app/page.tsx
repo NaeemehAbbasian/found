@@ -19,7 +19,7 @@ export default function LandingPage() {
                 
                 <h1 
                     className="text-4xl md:text-4xl whitespace-nowrap leading-tight mb-6 px-12 text-[#270F94] text-left" 
-                >
+            >
                     Create your profile and take the first step towards new opportunities
                 </h1>
                 
